@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function go(f) {
+		f.submit();
+	}
+
+</script>
+</head>
+<body>
+	<form action="/0602_servlet/Ex16" method="get">
+	<p>수1: <input type="number" name="su1" required="required"></p>
+	<p>수2: <input type="number" name="su2" required="required"></p>
+	<p>연산자:
+		<input type="radio" name="cal" value="+" >+
+		<input type="radio" name="cal" value="-">-
+		<input type="radio" name="cal" value="*">*
+		<input type="radio" name="cal" value="/">/
+	</p>
+	<input type="hidden" name="cmd" value="2" >
+	<input type="submit" value="결과보기">
+	<hr>
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function send_go(f) {
+		var name = f.name.value;
+		if(name ==""){
+			alert("이름을 입력하세요");
+			f.name.focus();
+			return;
+		}
+		var age = f.age.value;
+		if(age ==""){
+			alert("나이를 입력하세요");
+			f.age.focus();
+			return;
+		}
+		f.submit();
+		f.action="/0602_servlet/Ex06";
+		f.submit();
+		
+	}
+	function send_go2(f) {
+		var name = f.name.value;
+		if(name ==""){
+			alert("이름을 입력하세요");
+			f.name.focus();
+			return;
+		}
+		var age = f.age.value;
+		if(age ==""){
+			alert("나이를 입력하세요");
+			f.age.focus();
+			return;
+		}
+		f.submit();
+		f.action="/0602_servlet/Ex06";
+		f.submit();
+		
+	}
+</script>
+</head>
+<body>
+	<h2>HTML을 활용한 서버에 정보 전송</h2>
+	<form action="/0602_servlet/Ex06" method="get">
+		<p>이름 : <input type="text" name="name" required="required"></p>
+		<p>나이 : <input type="number" name="age" min="1" required="required"></p>
+		<input type="submit" value="서블릿에게 보내기">
+	</form>
+	<form action="/0602_servlet/Ex06" method="post">
+		<p>이름 : <input type="text" name="name" required="required"></p>
+		<p>나이 : <input type="number" name="age" min="1" required="required"></p>
+		<input type="submit" value="서블릿에게 보내기">
+	</form>
+	<hr>
+	
+	
+	<h2>JS를 활용한 서버에 정보 전송</h2>
+	<form >
+		<p>이름 : <input type="text" name="name"></p>
+		<p>나이 : <input type="number" name="age" min="1" ></p>
+		<input type="button" value="서블릿에 전송" onclick="send_go(this.form)">
+	</form>
+	<form method="post">
+		<p>이름 : <input type="text" name="name" ></p>
+		<p>나이 : <input type="number" name="age" min="1" ></p>
+		<input type="button" value="서블릿에 전송" onclick="send_go2(this.form)">
+	</form>
+	<hr>
+</body>
+</html>

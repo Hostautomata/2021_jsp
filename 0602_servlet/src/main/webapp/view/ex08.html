@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function go(f) {
+		var name = f.name.value;
+		if(name==""){
+			alert("이름을 입력하세요");
+			f.name.focus();
+			return;
+		}
+		var kor = f.kor.value;
+		if(kor==""){
+			alert("국어점수를 입력하세요");
+			f.kor.focus();
+			return;
+		}
+		var eng = f.eng.value;
+		if(eng==""){
+			alert("영어점수를 입력하세요");
+			f.eng.focus();
+			return;
+		}
+		var mat = f.mat.value;
+		if(mat==""){
+			alert("수학점수를 입력하세요");
+			f.mat.focus();
+			return;
+		}
+		f.action="/0602_servlet/Ex08";
+		f.submit();
+	}
+	
+	
+	function go2(f) {
+		for (var i = 0; i < f.length; i++) {
+			if(f.elements[i].value==""){
+				alert(f.elements[i].name+"를 입력하세요");
+				f.elements[i].focus();
+				return;				
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="/0602_servlet/Ex08" >
+		<p>이름: <input type="text" name = "name" required="required"></p>
+		<p>국어: <input type="number" name = "kor" required="required"></p>
+		<p>영어: <input type="number" name = "eng" required="required"></p>
+		<p>수학: <input type="number" name = "mat" required="required"></p>
+		<input type="submit" value="입력">
+	</form>
+	<hr>
+	<form>
+		<p>이름: <input type="text" name = "name" required="required"></p>
+		<p>국어: <input type="number" name = "kor" required="required"></p>
+		<p>영어: <input type="number" name = "eng" required="required"></p>
+		<p>수학: <input type="number" name = "mat" required="required"></p>
+		<input type="button" value="입력" onclick="go(this.form)">
+	</form>
+	<form action="/0602_servlet/Ex08" method="post">
+		<p>이름: <input type="text" name = "name" required="required"></p>
+		<p>국어: <input type="number" name = "kor" required="required"></p>
+		<p>영어: <input type="number" name = "eng" required="required"></p>
+		<p>수학: <input type="number" name = "mat" required="required"></p>
+		<input type="submit" value="입력" name="go2(this.form)">
+	</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function go(f) {
+		f.submit();
+	}
+
+</script>
+</head>
+<body>
+	<form action="/0602_servlet/Ex16" method="post">
+		<input type="button"  value="오늘 날짜 구하기"onclick="go(this.form)" name="date">
+		<input type="hidden" name="cmd" value="1" >
+	</form>
+
+	<hr>
+	
+</body>
+</html>

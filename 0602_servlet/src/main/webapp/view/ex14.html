@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function go(f) {
+		f.submit();
+	}
+	function go2(f) {
+		f.submit();
+	}
+	
+</script>
+</head>
+<body>
+	<form action="/0602_servlet/Ex14_1" method="post">
+		<input type="button"  value="오늘 날짜 구하기"onclick="go(this.form)" name="date">
+	</form>
+	<hr>
+	<form action="/0602_servlet/Ex14_2" method="post">
+		<input type="button"  value="오늘 운세 구하기"onclick="go2(this.form)" name="luck">
+	</form>
+	<hr>
+	<form  method="post">
+		<input type="button" value="오늘 날짜와 운세 구하기"onclick="go3(this.form)" name="today">
+	</form>
+	<hr>
+	
+</body>
+</html>

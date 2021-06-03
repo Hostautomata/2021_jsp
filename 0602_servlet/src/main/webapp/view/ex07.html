@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function go(f) {
+		f.action="/0602_servlet/Ex07";
+		f.submit();
+		var su1 = su1.f.value;
+		if(su1 = ""){
+			aert("수1를 입력하세요")
+			f.su1.focus();
+			return;
+		}
+		if(su2 = ""){
+			aert("수2를 입력하세요")
+			f.su2.focus();
+			return;
+		}
+		var x = document.getElementsByName("cal");
+		var k  = 0;
+		for (var i = 0; i < x.length; i++) {
+			if(x[i].checked){
+				k= k+1;
+			}
+		}if(k==0){
+			alert("라디오버튼을 선택하세요");
+			return;
+		}
+	}
+	
+</script>
+</head>
+<body>
+<form action="/0602_servlet/Ex07" method="get">
+	<p>수1: <input type="number" name="su1" required="required"></p>
+	<p>수2: <input type="number" name="su2" required="required"></p>
+	<p>연산자:
+		<input type="radio" name="cal" value="+" >+
+		<input type="radio" name="cal" value="-">-
+		<input type="radio" name="cal" value="*">*
+		<input type="radio" name="cal" value="/">/
+	</p>
+	<input type="submit" value="결과보기">
+	<hr>
+</form>
+
+<!-- <form method="post" action="/0602_servlet/Ex07"> -->
+<form method="post" onsubmit="go(f)">
+	<p>수1: <input type="number" name="su1" required="required"></p>
+	<p>수2: <input type="number" name="su2" required="required"></p>
+	<p>연산자:
+		<input type="radio" name="cal" value="+" >+
+		<input type="radio" name="cal" value="-">-
+		<input type="radio" name="cal" value="*">*
+		<input type="radio" name="cal" value="/">/
+	</p>
+	<input type="submit" value="결과보기" >
+<!-- 	<input type="submit" value="결과보기" onclick="go(f)"> 사용하면 required를 사용할 수 없음.-->
+</form>
+<hr>
+
+</body>
+</html>
