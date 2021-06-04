@@ -3,8 +3,9 @@ package com.ict.model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Command03 {
+public class Command03 implements Command{
 	// 이름, 국,영,수를 받아서 이름, 총점, 평균, 학점 구하기
+	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String msg = "";
 		String name = request.getParameter("name");
