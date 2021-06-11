@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.io.File"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -39,6 +41,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>업로드된 정보 보기</h1>
+	<h2>
+		<li>올린사람 : <%=mr.getParameter("name") %></li>
+		<li>올린사람 : ${param.name }</li>
+		<li>파일 원본 이름 : <%=mr.getOriginalFileName("f_name") %></li>
+		<li>파일 저장 이름 : <%=mr.getFilesystemName("f_name")%></li>
+		<li>파일 타입 : <%=mr.getContentType("f_name")%></li>
+		<hr>
+		<%File file = mr.getFile("f_name"); %>
+		<li>파일 원본 이름 : <%=file.getName() %></li>
+		<li>파일 크기 : <%=file.length()/1024%>KB</li>
+		<li>파일 수정 날짜 : <%=file.lastModified()%></li>
+		<%--위에 숫자는 1970.01.01.0.0.0~현재시간까지 날짜를 수치화 한 것 --%>
+		<%
+			SimpleDateFormat format =
+				new SimpleDateFormat("yyyy-MM-dd HH:mm:ss EE");
+		%>
+		<li>수정 날짜 : <%= format.format(file.lastModified()) %></li>
+		<img src="../upload/<%=file.getName()%>" style="width:100px;">
+		<hr>
+		
+		<li>다운로드 : <a href="download.jsp?path=upload&f_name=<%=file.getName()%>"><%=file.getName() %></a></li>
+	</h2>
+		
 </body>
 </html>
