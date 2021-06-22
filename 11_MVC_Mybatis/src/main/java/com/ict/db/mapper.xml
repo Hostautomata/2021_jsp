@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="guestbook">
+	<select id="list" resultType="com.ict.db.VO">
+		select * from guestbook2 order by idx
+	</select>
+	<!-- ?대신#{} -->
+	<select id="detail" parameterType="String" resultType="com.ict.db.VO">
+		select * from guestbook2 where idx=#{idx}
+	</select>
+	<!-- insert, update, delete는 resultType이 무조건 숫자이므로 따로 없다. -->
+	<insert id="insert" parameterType="com.ict.db.VO">
+		insert into guestbook2 values(guestbook2_seq.nextval,#{name},#{subject},#{email},#{password},#{f_name},#{main},sysdate)
+	</insert>
+	<delete id="delete" parameterType="com.ict.db.VO">
+		delete from guestbook2 where idx=#{idx}
+	</delete>
+	<update id="update" parameterType="com.ict.db.VO">
+		update guestbook2 set name=#{name},subject=#{subject},email=#{email},#{f_name},main=#{main} where idx=#{idx}
+	</update>
+	
+</mapper>

@@ -15,7 +15,7 @@ public class OneListCommand implements Command{
 		String b_idx = request.getParameter("b_idx");
 		String cPage = request.getParameter("cPage");
 		request.setAttribute("cPage", cPage);
-		
+		System.out.println(cPage);
 		// 조회수 업데이터 
 		int result = DAO.getHitUp(b_idx);
 		
